@@ -1,14 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
-from .models.mango import Mango
 from .models.photo import Photo
 from .models.user import User
-
-class MangoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Mango
-        fields = ('id', 'name', 'color', 'ripe', 'owner')
 
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
