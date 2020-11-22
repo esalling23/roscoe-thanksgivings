@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { getPhotos } from '../../api/photos'
 
 import YearSection from '../shared/YearSection'
 
@@ -6,8 +7,7 @@ const Timeline = () => {
   const [photos, setPhotos] = useState(null)
 
   useEffect(() => {
-    fetch('api/photos')
-      .then(res => res.json())
+    getPhotos()
       .then(res => {
         console.log(res)
         setPhotos(groupByYear(res.photos))

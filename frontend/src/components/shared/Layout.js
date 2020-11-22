@@ -1,18 +1,20 @@
 import React from 'react'
 
+import Container from 'react-bootstrap/Container'
+
 import Header from './Header'
 import Footer from './Footer'
 
 const Layout = ({ children }) => (
-  <main className="container">
+  <Container>
     <Header/>
 
-    <h1>Roscoe Thanksgiving Through the Years</h1>
-
+    <main className="mx-auto my-5">
     {children}
+    </main>
 
     <Footer/>
-  </main>
+  </Container>
 )
 
 export default Layout

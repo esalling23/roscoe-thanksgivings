@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => (
   <footer>
-    <p>Created by Eron Salling for the family.</p>
+    <p className="mx-auto">Created by Eron Salling for the family.</p>
   </footer>
 )
 
