@@ -48,9 +48,9 @@ const GuessYearGame = () => {
   const handlePhotoLoad = () => setPhotoLoaded(true)
 
   return (
-    <Row className="w-75">
+    <Row className="w-75 mx-auto">
+      <h2>Guess the Thanksgiving Year</h2>
       <Col md="8">
-        <h2>Guess the Thanksgiving Year</h2>
         {currentPhoto && (
           <PhotoCard
             file={currentPhoto.file}

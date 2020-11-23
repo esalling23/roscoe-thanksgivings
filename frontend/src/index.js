@@ -1,11 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { HashRouter } from 'react-router-dom'
-import './styles/index.css'
-import App from './App'
 import 'bootstrap/dist/css/bootstrap.css'
-
-const container = document.getElementById('app')
+import './styles/index.scss'
+import App from './App'
 
 const appJsx = (
   <HashRouter>
@@ -13,4 +11,4 @@ const appJsx = (
   </HashRouter>
 )
 
-render(appJsx, container)
+render(appJsx, document.getElementById('app'))

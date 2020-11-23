@@ -6,15 +6,15 @@ import Header from './Header'
 import Footer from './Footer'
 
 const Layout = ({ children }) => (
-  <Container>
+  <main>
     <Header/>
 
-    <main className="mx-auto my-5">
+    <Container className="my-5">
     {children}
-    </main>
+    </Container>
 
     <Footer/>
-  </Container>
+  </main>
 )
 
 export default Layout
