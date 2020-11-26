@@ -23,7 +23,7 @@ const Header = () => {
       <Navbar.Collapse className="justify-content-end">
         <NavLink
           onSelect={closeNav}
-          href="#/"
+          href="#timeline"
         >
           Timeline
         </NavLink>

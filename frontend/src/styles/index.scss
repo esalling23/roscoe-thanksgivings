@@ -61,6 +61,11 @@ body {
     background-color: scale-color($lightest-orange, $alpha: -30%);
   }
 
+  .home-page {
+    border-radius: 10px;
+    background-color: scale-color($lightest-orange, $alpha: -30%);
+  }
+
   .navbar {
     background-color: $lighter-orange;
 

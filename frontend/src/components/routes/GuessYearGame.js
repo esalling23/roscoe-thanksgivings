@@ -106,7 +106,7 @@ const GuessYearGame = () => {
     <div className="mx-auto">
       <div className="guess-game pt-3 px-3 mb-2">
         <Row className="d-flex flex-column m-auto">
-          <h3>During which year was this Thanksgiving photo taken?</h3>
+          <h3>What year was this Thanksgiving photo taken?</h3>
           <p>Guess below!</p>
         </Row>
       </div>
