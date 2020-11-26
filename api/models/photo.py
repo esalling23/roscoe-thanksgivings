@@ -12,7 +12,7 @@ def compress(image):
     return new_image
 
 class Photo(models.Model):
-    file = models.FileField()
+    file = models.ImageField()
     year = models.CharField(max_length=4)
     def __str__(self):
         print(self.file)
