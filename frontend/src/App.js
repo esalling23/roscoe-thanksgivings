@@ -8,8 +8,8 @@ import Layout from './components/shared/Layout'
 const App = () => {
   return (
     <Layout>
-        <Route exact path="/" component={Timeline}/>
-        <Route exact path="/guess-year-game" component={GuessYearGame}/>
+      <Route exact path="/" component={Timeline}/>
+      <Route exact path="/guess-year-game" component={GuessYearGame}/>
     </Layout>
   )
 }

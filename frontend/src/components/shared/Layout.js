@@ -9,7 +9,7 @@ const Layout = ({ children }) => (
   <main>
     <Header/>
 
-    <Container className="my-5">
+    <Container fluid className="mt-5 mb-8">
     {children}
     </Container>
 

@@ -7,10 +7,10 @@ import PhotoCard from './PhotoCard'
 const YearSection = ({ year, photos }) => {
   return (
     <section className="my-4">
-      <h3 className="year-title">{year}</h3>
-      <Row className="year-row pl-1 mb-5">
+      <h2 className="year-title">{year}</h2>
+      <Row className="year-row pl-1 mb-2">
       {photos.map(photo => (
-        <Col key={photo.id} className="my-3" sm="6" md="4">
+        <Col key={photo.id} className="my-3" sm="6" lg="4">
           <PhotoCard file={photo.file}/>
         </Col>
       ))}

@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl'
 import Form from 'react-bootstrap/Form'
+import Spinner from 'react-bootstrap/Spinner'
 
 import PhotoCard from '../shared/PhotoCard'
 
@@ -16,6 +17,7 @@ const GuessYearGame = () => {
   const [guess, setGuess] = useState('')
   const [hasGuessed, setHasGuessed] = useState(false)
   const [photoLoaded, setPhotoLoaded] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   // on mount, load random photo
   useEffect(() => {
@@ -28,10 +30,12 @@ const GuessYearGame = () => {
     if (photoLoaded) {
       setHasGuessed(false)
       setGuess('')
+      setLoading(false)
     }
   }, [photoLoaded])
 
   const getRandomPhoto = (photoArr) => {
+    setLoading(true)
     const shuffledPhotos = knuthShuffle(photoArr.slice(0))
     const newPhoto = shuffledPhotos.pop()
     setPhotos(shuffledPhotos)
@@ -47,31 +51,81 @@ const GuessYearGame = () => {
 
   const handlePhotoLoad = () => setPhotoLoaded(true)
 
-  return (
-    <Row className="w-75 mx-auto">
-      <h2>Guess the Thanksgiving Year</h2>
-      <Col md="8">
-        {currentPhoto && (
-          <PhotoCard
-            file={currentPhoto.file}
-            onLoad={handlePhotoLoad}
+  const guessFormJsx = (
+    <Form onSubmit={handleGuessSubmit} className="d-inline">
+      <Form.Row>
+        <Col sm="8">
+          <FormControl
+            className="d-inline my-2"
+            value={guess}
+            onChange={handleGuessChange}
+            placeholder="Guess the year here"
           />
-        )}
-      </Col>
-      <Col md="4" className="d-flex flex-column-reverse">
-        {hasGuessed ? (
-          <div>
-            <h4>{guess === currentPhoto.year ? 'You got it!' : 'Not quite :/ \nThe correct answer was ' + currentPhoto.year}</h4>
-            <Button onClick={handleReplay}>Play Again</Button>
-          </div>
-        ) : (
-          <Form onSubmit={handleGuessSubmit} className="align-bottom d-inline">
-            <FormControl value={guess} onChange={handleGuessChange}/>
-            <Button type="submit">Guess</Button>
-          </Form>
-        )}
-      </Col>
-    </Row>
+        </Col>
+        <Col sm="4">
+          <Button type="submit" className="my-2">Submit</Button>
+        </Col>
+      </Form.Row>
+    </Form>
+  )
+
+  let gameJsx = guessFormJsx
+
+  if (currentPhoto) {
+    const winMessage = guess === currentPhoto.year ? (
+      <h4>You got it!</h4>
+    ) : (
+      <React.Fragment>
+        <h3>So close!</h3>
+        <h4>The correct answer was {currentPhoto.year}</h4>
+      </React.Fragment>
+    )
+    const playAgainJsx = (
+      <div>
+        <React.Fragment>{winMessage}</React.Fragment>
+        <Button onClick={handleReplay}>Play Again</Button>
+      </div>
+    )
+
+    gameJsx = (
+      <React.Fragment>
+        { hasGuessed ? playAgainJsx : guessFormJsx }
+      </React.Fragment>
+    )
+  }
+
+  const loadingJsx = (
+    <Spinner animation="border" role="status">
+      <span className="sr-only">Loading...</span>
+    </Spinner>
+  )
+
+  // const loadingJsx = 'Loading...'
+
+  return (
+    <div className="mx-auto">
+      <div className="guess-game pt-3 px-3 mb-2">
+        <Row className="d-flex m-auto justify-content-center">
+          <h3>During which year was this Thanksgiving photo taken?</h3>
+          <p>Guess below!</p>
+        </Row>
+      </div>
+      <div className="guess-game py-3 px-3">
+        <Row className={`d-flex p-3 m-auto justify-content-center align-items-center`}>
+          {loading ? loadingJsx : gameJsx}
+        </Row>
+        <Row className="p-3">
+          <Col className="m-auto" md="10" lg="8">
+            {currentPhoto && (
+              <PhotoCard
+                file={currentPhoto.file}
+                onLoad={handlePhotoLoad}
+              />
+            )}
+          </Col>
+        </Row>
+      </div>
+    </div>
   )
 }
 

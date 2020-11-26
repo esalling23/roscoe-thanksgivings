@@ -50,11 +50,11 @@ const Timeline = () => {
   }
 
   return (
-    <React.Fragment>
+    <div className="mb-8">
       <div className="d-flex justify-content-end">
         <Button
           onClick={() => setYearSortReverse(prev => !prev)}
-          className="align-right"
+          className="year-sort align-right"
         >
           {yearSortReverse ? 'Year 🔼' : 'Year 🔽'}
         </Button>
@@ -68,7 +68,7 @@ const Timeline = () => {
         />
       ))}
       </div>
-    </React.Fragment>
+    </div>
   )
 }
 

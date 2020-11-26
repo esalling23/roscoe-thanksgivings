@@ -7,67 +7,154 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  color: $dark-orange;
   font-family: $font-family;
   font-size: 20px;
+  text-align: center;
+
+  * {
+    font-weight: bolder !important;
+  }
+
+  // margins
+  .mb-8 {
+    margin-bottom: 8em !important;
+  }
 
   .btn, .btn-primary {
-    color: scale-color(orange, $lightness: -60%);
-    background-color: orange;
-    border: orange;
-    font-size: 1.25rem;
-    font-weight: bold;
+    color: $dark-orange;
+    background-color: $base-orange;
+    border: $base-orange;
 
     &:hover,
-    &:active,
-    &:focus {
-      background-color: scale-color(orange, $lightness: -20%) !important;
-      border: scale-color(orange, $lightness: -20%) !important;
+    &:focus,
+    &:active {
+      background-color: $light-orange !important;
+      border: $light-orange !important;
+      box-shadow: none !important;
+      color: $dark-orange !important;
     }
+
+    &:focus {
+      background-color: $base-orange !important;
+    }
+
+    &:active {
+      color: white !important;
+    }
+  }
+
+  .card {
+    background-color: $lightest-orange;
+  }
+
+  footer {
+    bottom: 0;
+  }
+
+  .container-fluid {
+    margin-bottom: 5em;
+  }
+
+  .guess-game {
+    border-radius: 10px;
+    background-color: scale-color($lightest-orange, $alpha: -40%);
   }
 
   .navbar {
-    background-color: scale-color(orange, $lightness: 40%);
+    background-color: $lighter-orange;
   }
 
   .nav-link {
-    color: scale-color(orange, $lightness: -60%);
+    color: $dark-orange;
     font-weight: bold;
 
-    &:hover, :active {
-      color: scale-color(orange, $lightness: -60%);
+    &:hover {
+      color: $dark-orange;
+    }
+
+    &:active {
+      color: white;
     }
   }
 
-  .navbar-brand {
-    font-size: 1.75rem;
-    font-weight: bolder;
+  .navbar-collapse {
+    .navbar-brand {
+      font-size: 1.25rem;
+      font-weight: bolder;
+
+      &:active {
+        color: white !important;
+      }
+    }
+
+    .guess-btn {
+      font-size: 1.1em;
+    }
+  }
+
+  .year-sort {
+    font-size: 1.25em;
   }
 
   .year-title {
-    color: scale-color(orange, $lightness: 40%);
-    font-size: 1.75em;
+    color: $lighter-orange;
+    font-size: 1.5em;
     font-weight: bolder;
-    margin-left: -20px;
+    text-align: left;
+    text-shadow: 1px 1px scale-color($lighter-orange, $lightness: -10%, $alpha: -10%);
   }
 
   .year-row {
-    border-left: 10px solid scale-color(orange, $lightness: -20%);
-  }
-
-  .card-columns {
-    border-left: 10px solid scale-color(orange, $lightness: -20%);
-    padding-left: 40px;
+    border-left: 10px solid $lighter-orange;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 
-@media (min-width: 576px) {
-  .card-columns {
-    column-count: 2;
+// Small devices (landscape phones, 576px and up)
+@media screen and (min-width: 576px) {
+  body {
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+
+    .year-title {
+      font-size: 1.75em;
+    }
   }
 }
 
+// Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .card-columns {
-    column-count: 3;
+  body {
+    .navbar-brand {
+      font-size: 1.75rem;
+    }
+
+    .year-title {
+      font-size: 2em;
+      margin-left: -20px;
+    }
+
+    .year-row {
+      margin-right: -15px;
+      margin-left: -15px;
+    }
+
+    .container-fluid {
+      padding-right: 45px;
+      padding-left: 45px;
+    }
   }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }

@@ -1,4 +1,12 @@
-$background-color: orange;
-$font-color: black;
-
 $font-family: 'EB Garamond', serif;
+
+$base-orange: orange;
+$dark-orange: scale-color($base-orange, $lightness: -60%);
+$light-orange: scale-color(orange, $lightness: -20%);
+$lighter-orange: scale-color($base-orange, $lightness: 40%);
+$lightest-orange: scale-color($base-orange, $lightness: 80%);
+
+$background-color: $base-orange;
+
+$font-color: $dark-orange;
+$font-light: $lighter-orange;
