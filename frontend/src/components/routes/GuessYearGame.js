@@ -105,7 +105,7 @@ const GuessYearGame = () => {
   return (
     <div className="mx-auto">
       <div className="guess-game pt-3 px-3 mb-2">
-        <Row className="d-flex m-auto justify-content-center">
+        <Row className="d-flex flex-column m-auto">
           <h3>During which year was this Thanksgiving photo taken?</h3>
           <p>Guess below!</p>
         </Row>
@@ -118,7 +118,7 @@ const GuessYearGame = () => {
           <Col className="m-auto" md="10" lg="8">
             {currentPhoto && (
               <PhotoCard
-                file={currentPhoto.file}
+                photo={currentPhoto}
                 onLoad={handlePhotoLoad}
               />
             )}

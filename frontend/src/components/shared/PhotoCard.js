@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 
-const PhotoCard = ({ file, onLoad }) => {
+const PhotoCard = ({ photo, onLoad, handleOverlayShow }) => {
   return (
-    <Card className="p-3">
+    <Card className="p-3" onClick={() => handleOverlayShow(photo)}>
       <img
         className="w-100"
-        src={file}
+        src={photo.file}
         onLoad={onLoad}
       />
     </Card>

@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { getPhotos } from '../../api/photos'
 
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 
 import YearSection from '../shared/YearSectionGrid'
+import PhotoCard from '../shared/PhotoCard'
 
 const Timeline = () => {
   const [photos, setPhotos] = useState(null)
   const [years, setYears] = useState(null)
   const [yearSortReverse, setYearSortReverse] = useState(false)
+  const [overlayPhoto, setOverlayPhoto] = useState(null)
 
   useEffect(() => {
     getPhotos()
@@ -49,8 +52,21 @@ const Timeline = () => {
     }, {})
   }
 
+  const handleOverlayClose = () => setOverlayPhoto(null)
+  const handleOverlayShow = (photo) => setOverlayPhoto(photo)
+
   return (
     <div className="mb-8">
+      <Modal size="lg" show={overlayPhoto ? true : false} onHide={handleOverlayClose}>
+        <Modal.Header className="px-5" closeButton>
+          <h1>{overlayPhoto && overlayPhoto.year}</h1>
+        </Modal.Header>
+        <Modal.Body>{overlayPhoto && (
+          <PhotoCard
+            photo={overlayPhoto}
+          />
+        )}</Modal.Body>
+      </Modal>
       <div className="d-flex justify-content-end">
         <Button
           onClick={() => setYearSortReverse(prev => !prev)}
@@ -65,6 +81,7 @@ const Timeline = () => {
           key={year}
           year={year}
           photos={photos[year]}
+          handleOverlayShow={handleOverlayShow}
         />
       ))}
       </div>

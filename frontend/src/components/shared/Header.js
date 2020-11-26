@@ -15,7 +15,7 @@ const Header = () => {
     <Navbar
       className="mb-3"
       expand="lg"
-      onToggle={openNav}
+      onToggle={expanded ? closeNav : openNav}
       expanded={expanded}
     >
       <Navbar.Brand href="#/">Roscoe Thanksgiving Through the Years</Navbar.Brand>

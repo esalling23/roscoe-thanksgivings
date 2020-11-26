@@ -1,5 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300;400;700&display=swap');
 @import 'variables.scss';
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700;800&display=swap');
 
 body {
   background-attachment: fixed;
@@ -7,7 +7,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  color: $dark-orange;
+  color: black;
   font-family: $font-family;
   font-size: 20px;
   text-align: center;
@@ -58,29 +58,27 @@ body {
 
   .guess-game {
     border-radius: 10px;
-    background-color: scale-color($lightest-orange, $alpha: -40%);
+    background-color: scale-color($lightest-orange, $alpha: -30%);
   }
 
   .navbar {
     background-color: $lighter-orange;
-  }
 
-  .nav-link {
-    color: $dark-orange;
-    font-weight: bold;
-
-    &:hover {
+    .nav-link {
       color: $dark-orange;
+      font-weight: bold;
+
+      &:hover {
+        color: $dark-orange;
+      }
+
+      &:active {
+        color: white;
+      }
     }
 
-    &:active {
-      color: white;
-    }
-  }
-
-  .navbar-collapse {
     .navbar-brand {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: bolder;
 
       &:active {
@@ -88,8 +86,10 @@ body {
       }
     }
 
-    .guess-btn {
-      font-size: 1.1em;
+    .navbar-collapse {
+      .guess-btn {
+        font-size: 1.1em;
+      }
     }
   }
 
@@ -110,13 +110,29 @@ body {
     margin-left: 10px;
     margin-right: 10px;
   }
+
+  .modal {
+    .modal-header {
+      .close {
+        font-size: 3rem;
+      }
+    }
+    .modal-content {
+      background-color: $lightest-orange;
+      .card {
+        border: 0px;
+      }
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media screen and (min-width: 576px) {
   body {
-    .navbar-brand {
-      font-size: 1.5rem;
+    .navbar {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
     }
 
     .year-title {
@@ -128,8 +144,10 @@ body {
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   body {
-    .navbar-brand {
-      font-size: 1.75rem;
+    .navbar {
+      .navbar-brand {
+        font-size: 2rem;
+      }
     }
 
     .year-title {
